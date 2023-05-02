@@ -1,0 +1,630 @@
+# The script of the game goes in this file.
+
+# Declare characters used by this game. The color argument colorizes the
+# name of the character.
+
+define f = Character("Kris", color="ef75c3")
+define m = Character("Me", color="173baf")
+define g = Character("???", color="d99645")
+define rg = Character("Robyn", color="d99645")
+define f2 = Character("Tara", color="39cb89")
+
+
+# The game starts here.
+
+label start:
+
+    # Show a background. This uses a placeholder by default, but you can
+    # add a file (named either "bg room.png" or "bg room.jpg") to the
+    # images directory to show it.
+
+    scene black
+    python:
+        name = renpy.input("Name?", length = 32)
+        name = name.strip()
+        loudname = name.upper() + name.upper()[-1]*5
+    "beep beep beep"
+    "{i}Ughhhh, five more minutes, please...{/i}"
+    "Beep beEP BEEP BEEP BE-"
+
+    scene bg bedroom
+    with fade
+
+    "{i}As much as I don’t wanna get up, I can’t sleep in...Kris will personally drag me out of bed{/i}."
+    "I pull myself out of my cave of blankets and rub the dirt out of my eyes."
+
+    #book interaction
+
+    scene bg outside
+    with fade
+
+    "I open the front door and am greeted by an enthusiastic yell."
+
+    show kris happy
+    with dissolve
+
+    f "[loudname]!!!"
+    "That’s my best friend, Kris. She is a *little* bit high energy for me, but sometimes that’s what I need I suppose."
+    m "Hey Kris."
+    show kris neutrals
+    #with dissolve
+    f "Come on, [name]! Don’t wanna be late to school!"
+    m "For sure, Kris, for sure."
+    "I know Kris has my best interest in mind, which is why I let her drag me around like this. We walk to school together every day because, let’s be real, I would not have the motivation to go."
+
+    show kris happy
+    #with dissolve
+    #why won't this work BRUHHHHH
+    "{i}{b}She’s the only friend I have{/b}{/i}."
+    scene bg lunch bench
+    with fade
+    "{i}After a few classes, and too much math, I finally reached lunch time{/i}."
+    # bell sound effect
+    "{i}I grabbed a sandwich from the cafeteria and went over to the bench that me and Kris usually sit together at{/i}."
+    show kris neutrals
+    # Kris fade in
+ 
+menu:
+    f "Hey [name]! What kind of sandwich did you get?"
+    
+    "Tuna salad sandwich":
+        jump tuna
+
+    "Peanut butter and jelly sandwich":
+        jump peanut
+
+    "Italian sandwich":
+        jump italian
+
+label tuna:
+    m "I got a tuna salad sandwich."
+    f "Ooo yum! You’ve made a great choice. Tuna salad is perfection!" # Kris big smile
+    m "Good to know we’re on the same page."
+    jump postlunch
+
+label peanut:
+    m "I got a peanut butter and jelly sandwich."
+    f "Ehhh, peanut butter and jelly? I know you like it, but I just don’t get how anyone could like peanuts and jelly together??"
+    m "Hey dude, sometimes things just work, okay?"
+    # Kris big smile
+    f "Whatever you say, [name]!"
+    jump postlunch
+
+label italian:
+    m "I got an Italian sandwich."
+    f "Italian, huh? I’ve never tried that one."
+    m "You should try it."
+    f "Hmm, maybe one day." # Kris big smile
+    jump postlunch
+
+label postlunch:
+    scene black
+    "After some sandwich chewing and riveting sandwich banter, the lunch bell rang, and we headed back to classes."
+    "After classes ended for the day, I decided to take my usual route to the library."
+    "Books have been one of my favorite things since I was young. There was really nothing else that could take you away into a fantastical world away from all your problems."
+    "Kris did not really get my book obsession as much, but everyone’s different I suppose."
+    "She says that she can’t focus at all on “all the words.” Which is what a book is. So."
+    "After a 20 minute walk, I arrived. I made a beeline for my favorite section: young adult fiction."
+    "However, after searching for 5 minutes, I couldn’t find the new Mary Dotter book. I decided to go ask a librarian if they knew where it was."
+    "After a conversation with the librarian, I headed to a corner in the section to tried and search there."
+    " . . . "
+    "I checked behind a few books. Don’t know why they’d be there, but there’s no pain in checking, right?"
+    "As I reached into the shelf to check behind another book, I suddenly felt a giant force push me towards the shelf."
+
+    "Jeez, could people not watch where they were walking??"
+    "But as I closed my eyes and anticipated my impact into the bookshelf, I instead felt my hands hit…the ground?"
+
+    scene bg library room
+
+    "I opened my eyes to a strange looking part of the library."
+    "It was a small room, all the walls lined with bookshelves. A small table sat in the middle of the room, a small lamp on top and a few chairs surrounding it."
+    "But the biggest thing I noticed was the amount of dust covering everything in the room. Everything was covered in dust."
+    "How long had this room gone uncleaned? It must have been, what, years??"
+    "I probably wasn’t supposed to be here. But on the other hand, there were a lot of books here…"
+
+menu:
+    "Maybe I could just have a look around?"
+
+    "Stay and look around":
+        jump staylib
+
+    "Try to leave":
+        jump leavelib
+
+label leavelib:
+    "No, that’s not a good idea, I stepped in through who knows what and ended up here. I should just head back home after all of this weird stuff."
+    "I turned back to where I came through the wall. If I just fiddled around again in that area, I must be able to get back, right?"
+    scene black
+    "I moved the books around a bit and after some pushing and frustration, I found myself falling back into the normal library."
+    "Huh."
+    "That was easier than I thought it would be."
+    "Well. That was weird. Time to go home, I guess."
+    "{b}Fake Ending{/b}."
+    return
+
+label staylib:
+    "Just a little looking around couldn’t hurt. Besides, maybe I’ll find something I like."
+    "I walked up to the shelf right in front of me and pulled a book out of the shelf. It took a bit of effort, mind you. Like the books had been glued in place."
+    "Dang. They had just been there for that long, unmoved."
+
+menu:
+    "There were two books that appeared to be sticking out of the shelf more. Maybe they would be easier to pull out?"
+    "Pull out the green book.":
+        jump green
+
+    "Pull out the red book.":
+        jump red
+
+label green:
+    "I pull the green book out of the shelf. The cover had faded gold lettering on the front."
+    "I flipped the book open to a random page. It looked like some sort of joke book."
+    "What room does a ghost not need?"
+    "A living room!"
+    "Wow, real cheesy."
+    python:
+        ghost_item = False
+    jump post1
+
+label red:
+    "I pull the red book out of the shelf."
+    "I flipped the book open to a random page. The writing was kinda faded, but pressed against one of the pages was a small scrap of paper."
+    "It looked like a poem."
+    
+    "{i}Interesting{/i}."
+    "I shoved the poem into my pocket."
+    python:
+        ghost_item = True
+    jump post1
+
+label post1:
+    "But as I reached for another book, I heard a small thump from behind me." #sound effect here?
+    "... who else was here?"
+    "I turned around slowly to find..."
+    "Nothing?"
+    "This part of the building did look pretty old, maybe it was just the building settling?"
+    "Yeah. It must've been that."
+    "I started turning back to the shelf I was at, but as I was turning, I felt myself bump into something that was much closer than the shelf."
+    "Something that wasn't here before."
+    "I fell to the ground for the second time that day, and I saw something I wasn't expecting for the second time that day."
+
+    #ghost image appears here
+    show robyn neutral 2
+
+    g "You must be new around here."
+    "Huh?"
+    "What?"
+    "Who was this stylish figure who had somehow appeared in front of me?"
+    g "Are you going to sit there? Or would you like some help?"
+    m "Uhhh...I got it."
+    "I lift myself up from the ground and cautiously eye the person in front of me."
+    m "...Who are you exactly?"
+    g "Just the most eloquent being around. My name's Robyn. And you?"
+    "{i}Robyn, huh...That's a quirky name{/i}."
+    m "Nice to meet you, I suppose. I'm [name]."
+    rg "Well, [name], what brings you here?"
+    "{i}What was I supposed to tell them, that I had stumbled through the wall somehow like an idiot?{/i}"
+
+menu:
+
+    m "Well..."
+
+    "I meant to be here. Come here all the time.":
+        jump purpose
+    "I kinda stumbled through the wall somehow.":
+        jump accident
+
+label purpose:
+    m "I meant to be here. Come here all the time."
+    rg "Uh huhhhh. I've never seen you before, so you might wanna come up with another story."
+    jump post2
+
+label accident:
+    m "I kinda stumbled through the wall somehow."
+    rg "Interesting. No one's done that before."
+    "They studied me up and down."
+    jump post2
+
+label post2:
+    "How was I supposed to respond to this."
+    rg "So, [name], since you don't seem to have a way out at the moment, wanna tell me a little about yourself? I'd be a rude host if I didn't make you feel welcome here."
+    "They didn't seem to be harmful, and either way I didn't think there was much I could do to get out of this."
+    "So I could indulge their curiosity, right?"
+    m "I like books. That's why I'm at the library."
+    rg "Makes sense."
+    m "Why are you here? Did you also fall through a wall?"
+    rg "I also have a liking for books. There is something very compelling about how authors can convey a being that does not even exist. But perhaps it is because those feelings exist in the real world."
+    m "Fair enou-"
+    rg "Love, jealousy, heartbreak, adventure..."
+    "{i}That doesn't really explain how they got here...{/i}"
+    m "Aghhh, I just wanted to find that Perry Motter book..."
+    rg "Wait! You read Perry Motter?"
+    m "Uhhh, yeah."
+    show robyn excited 2
+    rg "I SIMPLY ADORE PERRY MOTTER!"
+    m "Really? That's cool. What's your favorite book in the series?"
+    rg "The one where they introduce Elphon! He starts off quite audacious, but you really do warm up to him by the end."
+    m "I really liked his character too! All the people online didn't seem to agree, though."
+    rg "Pish posh, what do those peasants know? Perhaps they simply can not appreciate good writing"
+    m "I know, right?"
+    scene black
+    "And for the next two hours, we were engrossed in a conversation about our favorite book."
+    "Robyn told me how to leave the room, so I would be able to come and go in the future."
+    "{i}{b}This was truly the beginning of a great friendship.{/i}{/b}"
+
+    #DAY 2
+
+    "beep beep beep"
+    "{i}Ughhhh, nooooo...{/i}"
+    "Beep beEP BEEP B-"
+
+    scene bg bedroom
+    with fade
+
+    "{i}School is gonna be such a drag today.{/I}."
+    "After getting ready, I headed out. But to my surprise, Kris wasn't there."
+    "{i}Huh. That's odd{/i}."
+    "But before I can think for too long, I see Kris walking up with someone walking next to her."
+
+    #Kris and Tara sprites appear
+
+    f "Hey [name], sorry I'm a little late."
+    m "It's all good, who's this?"
+    f "Oh right, this is Tara. You remember the literature club I'm a part of right? She joined yesterday, and we just clicked!"
+    f "We walked home together after the club meeting and we realized that we live right next to each other! So I asked if she would like to join us!"
+    f2 "It's...it's really nice to meet you, [name]." #shy glance down
+    m "Yeah, it's nice to meet you too."
+    "{i}She seems very timid. No wonder she took a liking to Kris, she's really easy to talk to.{/i}"
+    f "Alrighty guys, let's get a move on!" #cheerful sprite
+    
+    "Morning classes flew by, and soon it was time for lunch."
+    "I grabbed my usual sandwich and headed to the lunch bench."
+    "As I walked up, I saw that both Kris and Tara were there."
+    f "Hey [name]! How was math?"
+    m "Absolutely terrible."
+    f "Sounds about right, heh."
+    f "What about you, Tara? Are you a math fan?"
+    f2 "Uhhh, yeah. Math makes more sense to me than English."
+    f "Dang Tara, that's pretty cool!"
+    f2 "Th-thank you, Kris."
+    "As I shifted to grab my water bottle, I felt something fall out of my pocket."
+    f "Hey [name], I think you dropped something."
+    "I looked over to see the poem I had picked up yesterday."
+    m "Ah yeah, thanks."
+    "I leaned over and picked up the paper."
+    f2 "What's that?"
+    m "Oh, it's nothing, just something I found."
+    f2 "Can I take a look at it?"
+    m "Uhh, yeah sure."
+    "I handed the paper over to Tara. She read over it, pausing at one point. She then handed it back, looking a little distracted."
+    "I wanted to ask her why, but I didn't get to. Kris started ranting about a cool dessert store she had come across the other day."
+    ". . ."
+    f "[name]. [loudname]!"
+    m "Ahh, what, sorry, what's happening?"
+    f "It's all good, just wanted to know if you could come over to my house later? I need some help with some homework."
+    m "Yeah, of course."
+    "{i}Damn, I must've been really out of it{/i}."
+    "Before I knew it, lunch was over, and I zoned out through the rest of my classes, waiting for school to be over so I could head to the library."
+
+    "Finally, school was over."
+    "I grabbed my things and headed to the library."
+    "I walked to the corner from the day before and pushed through the shelf once again."
+    "I was greeted again with the dusty, old room."
+    "{i}Huh. Robyn isn't here yet{/i}."
+    "{i}Guess I'll take a look around again{/i}."
+    "I sat down at the table and found a few labeled journals."
+
+menu:
+
+    "{i}I wonder what's in them?{/i}"
+    "Look in Journal 1":
+        jump journal1
+    "Look in Journal 3":
+        jump journal3
+
+label journal1:
+    "I picked up the journal labeled '1'."
+    "I opened it up and flipped through. A lot of the writing had faded from age and was illegible."
+    "However, I was able to find a stray page in the middle."
+    #show diary page 1
+    python:
+        ghost_diary1 = True
+    jump post3
+
+label journal3:
+    "I picked up the journal labeled '3'."
+    "I opened it up and flipped through. All of the writing was smudged. The ink was an odd...red color?"
+    "I couldn't read any of it, though."
+    python:
+        ghost_diary1 = False
+    jump post3
+
+label post3:
+    rg "Greetings."
+    m "AHHHhhh, dude what the heck??"
+    rg "The look on your face is priceless, truly."
+    m "I'm sure it is, Robyn."
+    "I give them a look of annoyance."
+    "__"
+    rg "So, did you read that spin-off series I recommended?"
+    m "I didn't get the chance to yet, lots of homework."
+    rg "Homework. What a waste of time, don't you think?"
+    m "I mean, yeah. Probably. But it's not like I have much of a choice."
+    m "Gotta get good grades so I can get into a good college. Besides, I actually like the book we are reading for homework for once."
+    rg "Oh, you hold your homework higher than a reputable recommendation from your favorite book buddy?"
+    rg "Oh, the tears leaking from my eyes."
+    m "Since when were you my favorite book buddy? I literally met you yesterday."
+    rg "Well, you cherished me enough to come back today. Even if it's in a musty library."
+    "{i}Huh. I guess I did.{/i}"
+    #MAYBE ADD SOMETHING ELSE TO END?
+
+    #DAY 3
+
+    "beep beep I'm a sheep I said beep beep I'm a sheep"
+    "{i}Aghhh...{/i}"
+    "Beep beEP-"
+    scene bg bedroom
+    with fade
+    "{i}Time to get up, I guess. But at least I'll get to see Robyn afterwards, right?{/i}"
+    "I got ready for the day, and met Kris and Tara outside my house."
+    f "GOOD MORNING [loudname]!!"
+    m "Good morning, Kris. Good morning, Tara."
+    f "Oh yeah, [name], why didn't you come over yesterday? You said you would come?"
+    m "I did?"
+    f "Yeah, silly. You forgot? That's odd. Maybe you should get some more sleep."
+    "{i}My sleep schedule's been in the best shape it's been in a while, but that's still kinda concerning{/i}."
+    f "Also, [name], you didn't forget to do that assignment for chemistry too, right? Teach has been really doubling down on people for not getting work done."
+    "{i}Well, I finished some of it, but I spent a lot of time yesterday reading Robyn's spin-off recommendation, so I fell asleep before I could finish it.{/i}"
+    "{i}Guess I'll have to finish it during lunch so I don't lose points.{/i}"
+    m "Uh huh, I did it, don't you worry."
+    f "What about you, Tara?"
+    f2 "Uh, I did it. yeah."
+    f "Yayyy, looks like we're all responsible!!"
+    "But as Kris celebrated us allegedly having our work done, I noticed Tara giving me an odd look."
+    "She kept staring at my jacket."
+    "Odd."
+
+    "Ahhh, finally lunch time. I could get some food in my stomach and finish that chem work."
+    "I crossed paths with Kris on the way there, so we went together to grab food."
+    f "Hey [name], since we're free this weekend, I was wondering if you wanted to hang out and take a walk in the park?"
+    "Kris and I took walks together at our local park sometimes. It was a nice stress reliever for me, and the open area gave Kris plenty of room to get her pent up energy out."
+    m "Sounds like a plan..."
+    "I mumbled a response and took in no other details as I caught eye of the sandwiches on display for today, my stomach rumbling at the thought of food."
+    "Afterwards, I slapped my laptop down at the lunch bench and got to work, taking occasional bites of my sandwich and providing vague sounds of acknowledgment in Kris and Tara's conversation."
+    "I was so focused that it took me a bit to realize that Kris and Tara were waiting for a reply."
+    f "[name]?"
+    m "Ahh, sorry. Was getting really into my work. What's happening?"
+    "Kris turned and gestured for Tara to talk."
+    f2 "Uhh, [name], I was wondering if I could borrow that poem you had yesterday."
+    "{i}The poem? The one on the scrap of paper?{/i}"
+    m "What do you want it for?"
+    f2 "I was working on some of my own poetry, and it-it really inspired me. So I wanted to know if...I could have it?"
+    "It felt like such an odd request, but nothing bad could come from giving it to her, right?"
+    "It's not like it was super important to me."
+
+menu:
+    "But should I give it to her?"
+    "Give it":
+        jump give
+    "Keep it":
+        jump keep
+
+label give:
+    "{i}Yeah, I don't really need it. If it does some good for her, then she should have it{/i}."
+    "I pulled the paper out of my pocket."
+    m "Here ya go, Tara."
+    "She took it from my hand, her expression one of almost surprise."
+    f2 "Ahh, thank you s-so much."
+    python:
+        ghost_diary1 = False
+    "She looked grateful, yet somehow, I felt like something left me as I handed over the poem."
+    "Why did something just feel...off?"
+    jump post4
+    
+
+label keep:
+    "{i}Hey, I found this poem and it's mine now, so I can say no{/i}."
+    m "Sorry Tara, I wanna keep it. You could take a picture of it?"
+    f2 "No, it's alright..."
+    "She glared down at her legs."
+    "{i}That's odd. What does she want the actual paper for?{/i}"
+    "Kris seemed to sense the odd tension in the air."
+    f "H-hey guys! Did you guys hear about that new fundraiser that the class president announced? It's so weird! I saw that he..."
+    "Kris's voice continued on, but I was still caught up in my own thoughts."
+    "Was it wrong that I didn't give it to her?"
+    "Did Kris and Tara not like me anymore?"
+    "Why did something just feel...off?"
+    jump post4
+
+label post4:
+    "A few hours later, and I was on my way to the library."
+    "Hopefully this would get my mind off my thoughts from lunch."
+    "Once again, I walked through the shelf and ended up in the room."
+    "Robyn was already there, leaning against the shelf and engrossed in a book."
+    "As they heard me enter, they looked up and gave me a smile."
+    rg "Hello, [name]!"
+    "And at that, I felt myself subconsciously smile."
+    "I was with someone who understood me and liked what I liked."
+    "{i}{b}This dusty, old room really felt like a second home.{/b}{/i}"
+    m "Hey, Robyn."
+    rg "You read the next chapter, right?"
+    "And with that, it was like I had forgotten what had been troubling me on the way here."
+    #....
+    "As I stepped out of the room that day, I saw something drift out and land on the floor beside my foot."
+    "I kneeled down to pick it up."
+    #SHOW FAMILY PHOTO
+    "{i}Interesting{/i}."
+    "{i}The little child looked like Robyn{/i}."
+    
+    #DAY 4
+
+    "I felt myself slowly waking up."
+    "{i}No alarm? That's odd{/i}."
+    scene bg bedroom
+    with fade
+    ". . ."
+    "{i}Oh yeahhhh, it's Saturday. No school{/i}."
+    "{i}Also no library. Library closed. No Robyn. Aghhhhh{/i}."
+    "{I}But. I can chill for a few more hours{/i}."
+    "But as I attempted to drift off to sleep once again, a loud knocking came from my door."
+    "Not ever two seconds later, my phone started continuously ringing."
+    "{i}What is happening? Is this the apocalypse? It's too early{/i}..."
+    "As much as I didn't want to, I got up and went to my door."
+    f "[loudname]!!!!! WHY WON'T YOU PICK UP MY CALLS AHHHHH-"
+    m ". . ."
+    f "Ah. Hi. Sorry."
+    m "I was sleeping dude, what's all this about?"
+    f "We were gonna hang out? Remember??"
+    m "Uhhh, did we?"
+    "I could see Tara's expression. She did not look amused."
+    "Even Kris seemed more frustrated than usual."
+    f "Ah, [name]. Are you alright? You've been so forgetful this week, you haven't shown up, it's like we barely exist anymore!"
+    m "Look Kris, I'm sorry. I have no idea why I've been so...so all over the place this week."
+    f "I didn't even want to believe it but.."
+    f "Did you make fun of Tara's poetry?"   
+    m "...what?"
+    f "She told me about how you skipped our hangout yesterday JUST to go and berate her poetry??"
+    m "I literally didn't-"
+    f "I know we've been friends for a long time, but jeez, [name], has the lack of social contact been getting to you?!" 
+    f "Is this what spending all that time at the library has done to you?!!"
+    "It was silent for a moment."
+    "I couldn't believe that she had just yelled at me like that."
+    "Before I could fully process what had happened, Kris grabbed Tara by the hand and walked away."
+    ". . ."
+    "Why. How."
+    "So...Tara had told lies about me? But why?"
+    "I could not figure out how I had gotten here, but the sting of Kris's words were very clear."
+    "And after all that, I was alone."
+    "No friends."
+    "No library ghost to comfort me."
+    "Just me."
+    ". . . . . . . . . . . . . ."
+
+    #DAY 5
+
+    "....ughh.."
+    "{i}What time is it?{/i}"
+    "{i}Ahh, who cares...{/i}"
+    "{i}I might as well just rot away in bed{/i}."
+    "..."
+    "{i}Although, the library is open today{/i}..."
+    scene bg bedroom
+    with fade
+    "And with that thought, I forced myself out of bed, got ready, and headed out for the library."
+    "I really wanted to talk with Robyn again. Robyn was my friend."
+    #goes to library
+    "I pushed into the old library room."
+    "Robyn was sitting at the table, their back turned to me."
+    "They turned around to face me, arms tense at their sides."
+    "My face must've made my distress obvious, as they immediately came up to me like a worried parent."
+    rg "Are you alright? You seem shaken."
+    "And with that one sentence, I began to break down."
+    "Robyn enveloped me a hug as I cried."
+    rg "..."
+    rg "What happened?"
+    m "...My friends left me."
+    rg "Well, they were not very good friends then."
+    "I pulled myself out of the hug."
+    m "But--everything--this just all feels so odd. Like it came out of nowhere."
+    rg "Perhaps they have finally shown their true colors."
+    m "Maybe. But-"
+    rg "Perhaps you need to stick to the people who are actually here for you."
+    m "But who?"
+    rg "[name], I was going to hold off on this because I thought it might be too soon but..."
+    rg "Would you like to stay here? With me?"
+    m "Stay here?"
+    rg "Yes. Forget about all the stress of the world. The betrayals and misunderstandings of your so-called 'friends'."
+    rg "Join me."
+    m "B-But-"
+    "Robyn's tone suddenly became a lot less gentle."
+    rg "Look, [name], if you leave now, you will never be able to return."
+    "{i}I could leave the world I knew. Stay in this wonderful room with this wonderful person{/i}."
+    "{i}What was waiting for me outside of here anyways? The numbing pattern of school?{/i}"
+
+if ghost_item and ghost_diary1:
+    menu:
+        "{i}What should I do?{/i}"
+        "Stay with Robyn":
+            jump stayRobyn
+        "Leave Robyn":
+            jump leaveRobyn
+        "Save Robyn":
+            jump saveRobyn
+else:
+    menu:
+        "{i}What should I do?{/i}"
+        "Stay with Robyn":
+            jump stayRobyn
+        "Leave Robyn":
+            jump leaveRobyn
+
+label stayRobyn:
+    "{i}There's no point in staying in the real world, is there?{/i}"
+    m "In that case...I want to stay."
+    "I could see Robyn's eyes light up."
+    "They looked so happy. Someone was happy with me."
+    #Robyn big smile
+    rg "I'm really glad you chose to stay."
+    "And with that, I never left."
+    "I never looked back on my old life."
+    "The memories of it faded away as the days and weeks and months passed."
+    "But I was okay with that, because I got to spend my time with Robyn, reading all of the books I would ever want and talking about them afterwards."
+    "Like it was our own little eternal book club."
+    "And in that sense, it was the happiest I ever felt."
+    "But maybe, just maybe, the events that led me to this point weren't all that they had seemed?"
+    "{b}END{/b}."
+    return
+
+label leaveRobyn:
+    "{i}Even if things were going south recently, staying in this old library forever was madness.{/i}"
+    m "I'm sorry Robyn, but I can't stay here."
+    "As the words left my mouth, I could see Robyn's expression fall in surprise."
+    "As if they had expected me to want to stay."
+    "Huh."
+    rg "Wow. I can't believe you are abandoning me like this. After I've been such a great friend."
+    m "What?! I can't just give up my life for you, ok?"
+    "Robyn grabbed my arm tightly."
+    rg "NO! I AM YOUR FRIEND!"
+    "I pulled my arm away from them."
+    m "Kris might've gotten mad at me, but friends don't do this either."
+    "I decided that I had to walk away from this now. There was no other way."
+    "I moved toward the exit."
+    "As I went to leave, Robyn stopped me again."
+    rg "This what I get I suppose. For trying to make a friend. For trying to not be lonely. And maybe even help someone else who was lonely."
+    "And as much as it hurt, I pushed through the bookshelf and left the room."
+    #FADE TO WHITE
+    "beep beep beep"
+    "The next thing I remembered, I woke up in my bed."
+    "{i}Do I have school today?{/i}"
+    "A knock came from the door."
+    f "HEY [loudname]!"
+    m "Kris? You're not mad anymore? Where's Tara"
+    f "Mad? Why would I be mad? And who's Tara?"
+    "Kris looked like she had no recollection of what had happened a few days ago."
+    f "Maybe you just need some more sleep, silly. Not now, though, We gotta get to school!"
+    "{i}Huh{/i}."
+    "{i}This is nice{/i}."
+    "I cracked a small smile."
+    m "Yeah yeah, Kris, gimme a few minutes."
+    "Kris followed me back inside my house, and rambled on about a cute cat she had seen as I got ready."
+    "{i}{b}She really was the best friend I had.{/b}{/i}"
+    "{b}END{/b}."
+    return
+
+label saveRobyn:
+    "{i}I remembered the _{/i}."
+    m "Robyn...I know you've been through a lot. I know it hasn't been easy."
+    "I pulled the poem out of my pocket."
+    m "You've been trapped here, alone."
+    "They turned their_."
+    rg "You don't know me...if you knew the real me, I do not think you would like me any further."
+    m "Well, I am here to tell you that it's okay. Everything will be okay."
+    "It felt like I was consoling both Robyn and myself."
+    "_"
+    
+    
+    # This ends the game.
+
+
+
+
+    return
